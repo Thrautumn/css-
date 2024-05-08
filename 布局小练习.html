@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang = "zh">
+    <head>
+        <meta charset="UTF-8">
+        <title>布局小练习</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+            }/*利用通配选择器，先去清楚所有元素的默认样式，防止默认样式造成的微小影干扰布局 */
+            
+            .leftfix {
+                float: left;
+            }/*类选择器，用于使有该类名的元素左浮动，防止写过多的float，类似于C语言当中的宏*/
+
+            .rightfix {
+                float: right;
+            }/*作用同上*/
+
+            .clearfix::after {
+                content: '';
+                display: block;
+                clear: both;
+            }/*伪元素选择器，用于清除浮动所带来的诸多影响，同样类似于C语言当中的宏，防止代码冗余*/
+
+            .container {
+                /* 让块元素水平居中 */
+                margin: 0 auto;
+                /* 让container内的全部文字都水平居中 */
+                text-align: center;
+                width: 960px;;
+            }
+
+            .logo,.banner1,.banner2 {
+                /* 并集选择器 */
+                height: 80px;
+                background-color: #ccc;
+                /* 对于单行文字。行高=高度时，垂直居中 */
+                line-height: 80px;
+            }
+
+            .logo {
+                width: 200px;
+            }
+            .banner1 {
+                width: 540px;
+                margin: 0 10px;
+            }
+            .banner2 {
+                width: 200px;
+            }
+
+            .menu {
+                width: 960px;
+                height: 30px;
+                line-height: 30px;
+                margin: 10px auto;
+                background-color: #ccc;
+            }
+
+            .top {
+                margin-bottom: 10px;
+            }
+            .col1,.col2 {
+                height: 198px;
+                width: 368px;
+                border: 1px black solid;
+                /* 注意：边框有2px，所以在设置高度和宽度的时候要减去边框的像素值 */
+            }
+            .col1 {
+                margin-right: 10px;
+            }
+            
+            .col3,.col4,.col5,.col6 {
+                height: 198px;
+                width: 178px;
+                border: 1px black solid;
+
+            }
+            .col4 {
+                margin: auto 10px;
+            }
+            .col5 {
+                margin-right: 10px;
+            }
+            .col7,.col8,.col9 {
+                height: 128px;
+                width: 198px;
+                border: 1px black solid;
+            }
+
+            .col8 {
+                margin: 10px auto;
+            }
+            .footer {
+                height: 60px;
+                line-height: 60px;
+                margin-top: 10px;
+                background-color: #ccc;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- 在写div的时候，可以这么写：div.xxx就会自动生成一个类名为xxx的div；写div#xxx,就会自动生成一个id为xxx的div -->
+        <!-- 大容器包裹全部内容 -->
+        <div class="container">
+            <!-- header -->
+            <div class="header clearfix"><!-- 在写完leftfix后，马上在父元素中加上消除浮动，不要忘-->
+                <div class="logo leftfix">logo</div>
+                <div class="banner1 leftfix">banner1</div>
+                <div class="banner2 leftfix">banner2</div>
+            </div>
+
+            <!-- menu -->
+            <div class="menu">menu</div>
+
+            <!-- content -->
+            <div class="content clearfix">
+                <div class="content_left leftfix">
+                    <div class="top clearfix">
+                        <div class="col1 leftfix">column1</div>
+                        <div class="col2 leftfix">column2</div>
+                    </div>
+                    <div class="bottom clearfix">
+                        <div class="col3 leftfix">column3</div>
+                        <div class="col4 leftfix">column4</div>
+                        <div class="col5 leftfix">column5</div>
+                        <div class="col6 leftfix">column6</div>
+                    </div>
+                </div>
+                <div class="right rightfix">
+                    <div class="col7">column7</div>
+                    <div class="col8">column8</div>
+                    <div class="col9">column9</div>
+                </div>
+            </div>
+            <!-- footer -->
+            <div class="footer">footer</div>
+        </div>
+    </body>
+</html> 
