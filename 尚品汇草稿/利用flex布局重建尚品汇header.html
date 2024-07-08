@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>flex</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <style>
+   .header {
+    height: 30px;
+    display: flex;
+    background-color: #f4f4f4;
+    font-size: 12px;
+   }
+   .header .container {
+    margin: auto;
+    width: 1190px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+   }
+   .header .left {
+    font-size: 0px;
+   }
+   .header .left .hello {
+    margin-right: 20px;
+   }
+   .header .left span {
+    font-size: 12px;
+   }
+   .header .left .login {
+    font-size: 12px;
+    margin-right: 10px;
+   }
+   .header .left .register {
+    font-size: 12px;
+    padding-left: 10px;
+    border-left: 1px solid #333;
+   }
+   .header .right .nav {
+    display: flex;
+   }
+   .header .right .nav li {
+    padding: 0px 15px;
+    border-right: 1px solid #666666;
+   }
+   .header .right .nav li:last-child {
+    border-right: none;
+   }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="container">
+            <div class="left">
+                <span class="hello">尚品汇欢迎您</span>
+                <span>请</span>
+                <a class= "login" href="#">登录</a>
+                <a class= "register" href="#">免费注册</a>
+            </div>
+            <div class="right">
+                <ul class="nav">
+                    <li><a href="#">我的订单</a></li>
+                    <li><a href="#">我的购物车</a></li>
+                    <li><a href="#">我的尚品汇</a></li>
+                    <li><a href="#">尚品汇会员</a></li>
+                    <li><a href="#">企业采购</a></li>
+                    <li><a href="#">关注尚品汇</a></li>
+                    <li><a href="#">合作招商</a></li>
+                    <li><a href="#">商家后台</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
