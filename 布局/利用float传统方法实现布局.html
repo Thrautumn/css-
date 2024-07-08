@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Float</title>
+
+    <style>
+         /* 清除默认样式 */
+        * { 
+            font-family: Arial; 
+            font-size: 14px; 
+            margin: 0; 
+            padding: 0; 
+            border: none; 
+        }
+        a { text-decoration: none; }
+        ul { list-style: none; }
+
+        /* 确保页面的背景图像能够完整覆盖整个浏览器视窗，并且不留任何空白区域。 */
+        body,
+        html {
+            width: 100%;
+            height: 100%;
+        }
+        body {
+            background-image: url(./img/bg.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        /* 设置浮动会计类名 */
+        .leftfix {
+            float: left;
+        }
+        .rightfix {
+            float: right;
+        }
+        .clearfix::after {
+            content:"";
+            display: block;
+            clear: both;
+        }
+
+        .header .container {
+            height: 70px;
+            line-height: 70px;
+            background-color: rgba(0, 0, 0, 0.7);
+            /* 消除margin合并问题 */
+            overflow: hidden; 
+        }
+        .header .logo {
+            font-size: 20px;
+            color: white;
+            margin: 0px 20px;
+        }
+
+        /* 把右导航变成行内块元素，不然不能呈单行分布 */
+        .header .nav li {
+            display: inline-block
+        }
+
+        .header .nav li a {
+            font-size: 20px;
+            color: white;
+            border: 1px solid white;
+            border-radius: 8px;
+            padding: 10px;
+            margin: 0px 10px;
+        }
+        .content {
+            overflow: hidden;
+            height: calc(100vh - 70px);
+        }
+        .content .container {
+            width: 1000px;
+            height: 300px;
+            margin: 170px auto;
+        }
+
+        /* img和span的位置改变用浮动做不了，要用定位 */
+        .content .nav span,
+        .content .nav img {
+            float: left;
+            position: absolute;
+        }
+        .content .item {
+            width: 180px;
+            height: 200px;
+            background-color: orange;
+            margin: 50px 10px;
+            position: relative;
+            cursor: pointer;
+            transition: 0.2s linear;
+        } 
+        .content .nav span {
+            font-size: 20px;
+            color: white;
+            left: 28%;
+            top: 70%;
+        }
+        .content .nav img {
+           top: 25.5%;
+           left: 25%;
+        }
+
+        /* 添加鼠标悬浮时候的样式 */
+        .content .item:hover {
+            box-shadow: 0px 0px 20px black;
+            transform: translateY(-1px);
+        }
+        .content .nav .item:nth-child(1) {
+            background-color:#595CA8;
+        }
+        .content .item:nth-child(2) {
+            background-color:#FF9D2E;
+        }
+        .content .item:nth-child(3) {
+            background-color:#01A6DE;
+        }
+        .content .item:nth-child(4) {
+            background-color:#015E91;
+        }
+        .content .item:nth-child(5) {
+            background-color:#1DC128;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="container clearfix">
+            <div class="logo leftfix">
+                This is the logo
+            </div>
+            <div class="nav rightfix">
+                <ul>
+                    <li><a href="">缅甸校区</a></li>
+                    <li><a href="">缅甸校区</a></li>
+                    <li><a href="">缅甸校区</a></li>
+                    <li><a href="">缅甸校区</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="content">
+        <div class="container">
+            <div class="nav clearfix">
+                <div class="item leftfix clearfix">
+                    <img src="./img/item1.png" alt="">
+                    <span>我的邮箱</span>
+                </div>
+                <div class="item leftfix clearfix">
+                    <img src="./img/item2.png" alt="">
+                    <span>我的邮箱</span>
+                </div>
+                <div class="item leftfix clearfix">
+                    <img src="./img/item3.png" alt="">
+                    <span>我的邮箱</span>
+                </div>
+                <div class="item leftfix clearfix">
+                    <img src="./img/item4.png" alt="">
+                    <span>我的邮箱</span>
+                </div>
+                <div class="item leftfix clearfix">
+                    <img src="./img/item5.png" alt="">
+                    <span>我的邮箱</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
