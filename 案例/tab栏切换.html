@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tab switch</title>
+    <link rel="stylesheet" href="../尚品汇草稿/css/reset.css">
+
+    <style>
+        .tab {
+            border: 1px solid black;
+            padding: 10px;
+            margin: 20px;
+            height: 340px;
+            width: 590px;
+        }
+        .header {
+            width: 590px;
+            height: 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .tab .header span {
+            font-size: 24px;
+            margin-left: 10px;
+        }
+        .tab .nav {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+
+        }
+        .tab .nav div {
+            font-size: 14px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 60px;
+            width: 68px;
+        }
+        .tab .nav div:hover {
+            cursor: pointer;
+        }
+
+        /* 先隐藏所有的图片 */
+        .tab .img .item {
+            display: none;
+        }
+        /* 添加nav 与 img 分别对应的active类，用于激活显示图片，添加文字下划线 */
+        .tab .img .active {
+            display: block;
+        }
+        .tab .nav .active {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="tab">
+        <div class="header">
+            <span>每日特价</span>
+            <div class="nav">
+                <!-- 再加上data-id，用于关联图片顺序 -->
+                <div class="active" data-id="0">精选</div>
+                <div class="" data-id="1">美食</div>
+                <div class="" data-id="2">百货</div>
+                <div class="" data-id="3">个护</div>
+                <div class="" data-id="4">预告</div>
+            </div>
+        </div>
+        <!-- 添加所有的图片 -->
+        <div class="img">
+            <div class="item active"><img src="./images/tab00.png" alt=""></div>
+            <div class="item"><img src="./images/tab01.png" alt=""></div>
+            <div class="item"><img src="./images/tab02.png" alt=""></div>
+            <div class="item"><img src="./images/tab03.png" alt=""></div>
+            <div class="item"><img src="./images/tab04.png" alt=""></div>
+        </div>
+    </div>
+
+    <script>
+        const nav = document.querySelector('.nav')
+        nav.addEventListener('click', (e) => {
+            if(e.target.tagName === 'DIV')
+            {
+                document.querySelector('.tab .nav .active').classList.remove('active')
+                e.target.classList.add('active')
+
+                const id = +e.target.dataset.id
+                document.querySelector('.tab .img .active').classList.remove('active')
+                document.querySelector(`.tab .img .item:nth-child(${id + 1})`).classList.add('active')
+            }
+        })
+    </script>
+</body>
+</html>
